@@ -1,0 +1,35 @@
+﻿@page
+@model groceries_webshop.Pages.ShoppingCartModel
+@{
+    <h1>Shopping Cart</h1>
+
+    <table>
+        <thead>
+            <tr><th>Name</th></tr>
+            <tr><th>Unit price</th></tr>
+            <tr><th>Total price</th></tr>
+            <tr><th>Image</th></tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model.Account.ShoppingCart)
+            {
+                <tr><td>product.Name</td></tr>
+                <tr><td>product.Price</td></tr>
+                <tr><td>product.Price</td></tr>
+                <tr><td>product.Image</td></tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Total: @Model.GetTotal();</h2>
+
+    <button onclick="@{
+        Model.Account.ShoppingCart.Clear();
+        }">
+        Empty cart
+    </button>
+
+    <a asp-area="" asp-page="/OrderConfirmation">Confirm purchase</a>
+
+}
