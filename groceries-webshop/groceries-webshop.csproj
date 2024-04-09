@@ -7,6 +7,7 @@
 		<UserSecretsId>bf9bf0eb-d0c8-4ef0-8791-cea2ea364619</UserSecretsId>
 	</PropertyGroup>
 
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'groceries_webshop' " />
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
