@@ -1,0 +1,177 @@
+[
+  {
+    "name": "Apple",
+    "image": "apple.jpg",
+    "price": 55.67,
+    "category": "Fruits",
+    "description": "Sweet and crisp, apples are perfect for snacking, baking, or making into sauces and pies."
+  },
+  {
+    "name": "Carrot",
+    "image": "carrot.jpg",
+    "price": 32.90,
+    "category": "Vegetables",
+    "description": "Crunchy and vibrant, carrots are great for snacking, salads, or roasting as a side dish."
+  },
+  {
+    "name": "Cashews",
+    "image": "cashews.jpg",
+    "price": 40.56,
+    "category": "Nuts",
+    "description": "Creamy and rich, cashews are perfect for snacking, adding to stir-fries, or making into creamy sauces."
+  },
+  {
+    "name": "Chickpeas",
+    "image": "chickpeas.jpg",
+    "price": 29.99,
+    "category": "Legumes",
+    "description": "Versatile and protein-packed, chickpeas are perfect for making hummus, salads, or roasting for a crunchy snack."
+  },
+  {
+    "name": "Honey",
+    "image": "honey.jpg",
+    "price": 20.78,
+    "category": "Condiments",
+    "description": "Sweet and natural, honey is perfect for sweetening beverages, drizzling over yogurt, or as a topping for toast."
+  },
+  {
+    "name": "Blueberries",
+    "image": "blueberries.jpg",
+    "price": 47.89,
+    "category": "Berries",
+    "description": "Sweet and antioxidant-rich, blueberries are perfect for snacking, baking, or adding to smoothies and yogurt bowls."
+  },
+  {
+    "name": "Chia Seeds",
+    "image": "chiaseeds.jpg",
+    "price": 35.45,
+    "category": "Seeds",
+    "description": "Nutrient-dense and versatile, chia seeds are perfect for adding to smoothies, oatmeal, or making into pudding."
+  },
+  {
+    "name": "Strawberries",
+    "image": "strawberries.jpg",
+    "price": 60.34,
+    "category": "Berries",
+    "description": "Juicy and sweet, strawberries are perfect for snacking, adding to salads, or making into jams and desserts."
+  },
+  {
+    "name": "Bell Pepper",
+    "image": "bellpepper.jpg",
+    "price": 18.76,
+    "category": "Vegetables",
+    "description": "Colorful and crunchy, bell peppers are great for salads, stir-fries, or stuffing with grains and proteins."
+  },
+  {
+    "name": "Peanuts",
+    "image": "peanuts.jpg",
+    "price": 25.67,
+    "category": "Nuts",
+    "description": "Crunchy and satisfying, peanuts are perfect for snacking, adding to trail mixes, or making into peanut butter."
+  },
+  {
+    "name": "Lentils",
+    "image": "lentils.jpg",
+    "price": 18.50,
+    "category": "Legumes",
+    "description": "High in protein and fiber, lentils are versatile legumes perfect for soups, stews, or salads."
+  },
+  {
+    "name": "Soy Sauce",
+    "image": "soysauce.jpg",
+    "price": 15.44,
+    "category": "Condiments",
+    "description": "Savory and flavorful, soy sauce is perfect for seasoning stir-fries, marinades, or dipping sushi."
+  },
+  {
+    "name": "Raspberries",
+    "image": "raspberries.jpg",
+    "price": 40.98,
+    "category": "Berries",
+    "description": "Sweet and tart, raspberries are packed with antioxidants and perfect for snacking or adding to desserts."
+  },
+  {
+    "name": "Sunflower Seeds",
+    "image": "sunflowerseeds.jpg",
+    "price": 12.11,
+    "category": "Seeds",
+    "description": "Crunchy and nutritious, sunflower seeds are perfect for snacking, adding to salads, or baking into breads and muffins."
+  },
+  {
+    "name": "Banana",
+    "image": "banana.jpg",
+    "price": 15.67,
+    "category": "Fruits",
+    "description": "Naturally sweet and portable, bananas are great for snacking, smoothies, or adding to baked goods."
+  },
+  {
+    "name": "Cucumber",
+    "image": "cucumber.jpg",
+    "price": 6.78,
+    "category": "Vegetables",
+    "description": "Refreshing and low in calories, cucumbers are great for salads, sandwiches, or dipping in hummus."
+  },
+  {
+    "name": "Pumpkin Seeds",
+    "image": "pumpkinseeds.jpg",
+    "price": 22.10,
+    "category": "Seeds",
+    "description": "Nutrient-rich and crunchy, pumpkin seeds are perfect for snacking, adding to salads, or topping soups and stews."
+  },
+  {
+    "name": "Black Beans",
+    "image": "blackbeans.jpg",
+    "price": 25.67,
+    "category": "Legumes",
+    "description": "High in protein and fiber, black beans are great for soups, salads, tacos, or as a side dish."
+  },
+  {
+    "name": "Orange",
+    "image": "orange.jpg",
+    "price": 18.34,
+    "category": "Fruits",
+    "description": "Juicy and citrusy, oranges are perfect for snacking, juicing, or adding to salads and desserts."
+  },
+  {
+    "name": "Broccoli",
+    "image": "broccoli.jpg",
+    "price": 20.99,
+    "category": "Vegetables",
+    "description": "Nutrient-rich and crunchy, broccoli is a superfood that can be steamed, roasted, or stir-fried."
+  },
+  {
+    "name": "Walnuts",
+    "image": "walnuts.jpg",
+    "price": 50.76,
+    "category": "Nuts",
+    "description": "Rich and earthy, walnuts are perfect for snacking, baking, or adding to salads and oatmeal."
+  },
+  {
+    "name": "Kidney Beans",
+    "image": "kidneybeans.jpg",
+    "price": 28.50,
+    "category": "Legumes",
+    "description": "High in protein and fiber, kidney beans are perfect for soups, stews, chili, or as a side dish."
+  },
+{
+    "name": "Mango",
+    "image": "mango.jpg",
+    "price": 30.45,
+    "category": "Fruits",
+    "description": "Sweet and tropical, mangoes are perfect for snacking, smoothies, or adding to salads and salsas."
+  },
+  {
+    "name": "Zucchini",
+    "image": "zucchini.jpg",
+    "price": 12.99,
+    "category": "Vegetables",
+    "description": "Versatile and low in calories, zucchini is great for grilling, sautéing, or baking into breads and muffins."
+  },
+  {
+    "name": "Pistachios",
+    "image": "pistachios.jpg",
+    "price": 45.80,
+    "category": "Nuts",
+    "description": "Nutty and delicious, pistachios are perfect for snacking, adding to salads, or making into pesto."
+  }
+]
