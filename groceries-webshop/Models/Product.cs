@@ -5,7 +5,9 @@ namespace groceries_webshop.Models
         Fruits,
         Vegetables,
         Nuts,
-        Legumes
+        Legumes,
+        Condiments,
+        Other
     }
 
     public class Product
