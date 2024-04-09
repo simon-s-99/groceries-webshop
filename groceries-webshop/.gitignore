@@ -1,7 +1,0 @@
-.vs/
-bin/
-obj/
-*.csproj.user
-Migrations/
-.vscode/
-appsettings.Development.json
