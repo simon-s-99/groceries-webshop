@@ -6,3 +6,8 @@
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
+
+<ul>
+    <li><a asp-page="/Search" asp-route-id="@accessControl.LoggedInAccountID">Sök</a></li>
+    <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
+</ul>

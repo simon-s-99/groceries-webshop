@@ -1,35 +1,52 @@
 ﻿@page
 @model groceries_webshop.Pages.ShoppingCartModel
+@inject groceries_webshop.Data.AccessControl accessControl
 @{
     <h1>Shopping Cart</h1>
 
     <table>
-        <thead>
-            <tr><th>Name</th></tr>
-            <tr><th>Unit price</th></tr>
-            <tr><th>Total price</th></tr>
-            <tr><th>Image</th></tr>
-        </thead>
+
+        @{
+            if (Model.Account.ShoppingCart.Count > 0)
+            {
+                <thead>
+                    <tr><th>Name</th></tr>
+                    <tr><th>Unit price</th></tr>
+                    <tr><th>Total price</th></tr>
+                    <tr><th>Image</th></tr>
+                </thead>
+
+            }
+            else
+            {
+                <tr><th>Your shopping cart is empty.</th></tr>
+            }
+        }
 
         <tbody>
-            @foreach (var product in Model.Account.ShoppingCart)
-            {
-                <tr><td>product.Name</td></tr>
-                <tr><td>product.Price</td></tr>
-                <tr><td>product.Price</td></tr>
-                <tr><td>product.Image</td></tr>
+            @{
+                if (Model.Account.ShoppingCart.Count > 0)
+                {
+                    foreach (var product in Model.Account.ShoppingCart)
+                    {
+                        <tr><td>product.Name</td></tr>
+                        <tr><td>product.Price</td></tr>
+                        <tr><td>product.Price</td></tr>
+                        <tr><td>product.Image</td></tr>
+                    }
+                }
             }
         </tbody>
     </table>
 
-    <h2>Total: @Model.GetTotal();</h2>
+    <h2>Total: @Model.GetTotal()</h2>
 
     <button onclick="@{
         Model.Account.ShoppingCart.Clear();
-        }">
+                    }">
         Empty cart
     </button>
 
-    <a asp-area="" asp-page="/OrderConfirmation">Confirm purchase</a>
+    <a asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID">Confirm purchase</a>
 
 }
