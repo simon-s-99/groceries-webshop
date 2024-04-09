@@ -396,3 +396,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# From Jakobs Template
+bin/
+obj/
+*.csproj.user
+*/Migrations/
+appsettings.Development.json
