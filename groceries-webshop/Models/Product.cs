@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace groceries_webshop.Models
 {
     public enum Category
