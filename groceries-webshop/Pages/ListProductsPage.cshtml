@@ -1,0 +1,17 @@
+﻿@page
+@model groceries_webshop.Pages.ListProductsPageModel
+@{
+}
+
+<h2>Products</h2>
+
+<ul>
+	@for (int i = 0; i < Model.Products.Count; i++)
+	{
+		<li>
+			<p>@Model.Products[i].Name</p>
+			<img src="~/images/products/@Model.Products[i].Image"
+				alt="Image of @Model.Products[i].Name" />
+		</li>
+	}
+</ul>
