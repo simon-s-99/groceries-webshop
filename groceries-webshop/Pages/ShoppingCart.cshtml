@@ -2,9 +2,9 @@
 @model groceries_webshop.Pages.ShoppingCartModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
-    <h1>Shopping Cart</h1>
+    <h1>My Shopping Cart</h1>
 
-    <table>
+    <table id="shoppingcart-table">
 
         @{
             if (Model.Account.ShoppingCart.Count > 0)
@@ -19,7 +19,7 @@
             }
             else
             {
-                <tr><th>Your shopping cart is empty.</th></tr>
+                <tr><th id="empty-message">Your shopping cart is empty.</th></tr>
             }
         }
 
@@ -39,14 +39,22 @@
         </tbody>
     </table>
 
-    <h2>Total: @Model.GetTotal()</h2>
+    @if (Model.Account.ShoppingCart.Count > 0)
+    {
+        <h2>Total: @Model.GetTotal()</h2>
+    }
 
-    <button onclick="@{
-        Model.Account.ShoppingCart.Clear();
-                    }">
-        Empty cart
-    </button>
+    <section id="shoppingcart-buttons">
+        <button id="empty-cart-button" onclick="@{
+        if (Model.Account.ShoppingCart.Count > 0) {
+            Model.Account.ShoppingCart.Clear();
+        }
+            }">
+            <img src="images/empty-shoppingcart-icon.svg" alt="Empty shopping cart icon" />
+            Empty cart
+        </button>
 
-    <a asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID">Confirm purchase</a>
+        <a id="checkout-button" asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID"><img src="images/checkout-icon.svg" alt="Checkout icon" />Checkout</a>
+    </section>
 
 }

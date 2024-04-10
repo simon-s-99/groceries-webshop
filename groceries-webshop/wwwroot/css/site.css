@@ -1,0 +1,37 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #015ccb50
+    
+}
+main {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+#empty-message {
+    color: #cb1717
+}
+
+#shoppingcart-buttons {
+    display: flex;
+    padding-top: 2rem;
+    width: 30%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#empty-cart-button, #checkout-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ee343461
+}
+
+#checkout-button {
+    text-decoration: none;
+    color: black;
+    border: 1px solid gray;
+    padding: 0.4rem;
+    background-color: #44db5840;
+    cursor: default;
+}
