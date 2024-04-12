@@ -21,13 +21,13 @@ main {
     justify-content: space-between;
 }
 
-#empty-cart-button, #checkout-button {
+#empty-cart-button, #checkout-button, #return-button {
     display: inline-flex;
     align-items: center;
     background-color: #ee343461
 }
 
-#checkout-button {
+#checkout-button, #return-button {
     text-decoration: none;
     color: black;
     border: 1px solid gray;
