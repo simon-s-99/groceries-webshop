@@ -20,7 +20,6 @@ namespace groceries_webshop.Pages
         {
             decimal total = 0;
 
-            /* Not finished, does not account for product amounts */
             foreach (Product product in Account.ShoppingCart)
             {
                 total += product.Price;

@@ -6,22 +6,22 @@
 
     <table id="shoppingcart-table">
 
-        @{
-            if (Model.Account.ShoppingCart.Count > 0)
-            {
-                <thead>
+        <thead>
+            @{
+                if (Model.Account.ShoppingCart.Count > 0)
+                {
                     <tr><th>Name</th></tr>
                     <tr><th>Unit price</th></tr>
                     <tr><th>Total price</th></tr>
                     <tr><th>Image</th></tr>
-                </thead>
 
+                }
+                else
+                {
+                    <tr><th id="empty-message">Your shopping cart is empty.</th></tr>
+                }
             }
-            else
-            {
-                <tr><th id="empty-message">Your shopping cart is empty.</th></tr>
-            }
-        }
+        </thead>
 
         <tbody>
             @{
@@ -49,7 +49,7 @@
         if (Model.Account.ShoppingCart.Count > 0) {
             Model.Account.ShoppingCart.Clear();
         }
-            }">
+                }">
             <img src="images/empty-shoppingcart-icon.svg" alt="Empty shopping cart icon" />
             Empty cart
         </button>
