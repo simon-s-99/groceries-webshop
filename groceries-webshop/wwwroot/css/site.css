@@ -9,6 +9,19 @@ main {
     place-items: center;
 }
 
+#shoppingcart-table {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#shoppingcart-table #table-headings th {
+    border: 2px double black;
+}
+
+#shoppingcart-table .table-cells td {
+    border: 2px solid black;
+}
+
 #empty-message {
     color: #cb1717
 }
@@ -21,17 +34,32 @@ main {
     justify-content: space-between;
 }
 
-#empty-cart-button, #checkout-button, #return-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: #ee343461
-}
-
 #checkout-button, #return-button {
     text-decoration: none;
+    background-color: #44db5840;
+}
+
+#empty-cart-button {
+    background-color: #ee343461;
+}
+
+#checkout-button, #return-button, #empty-cart-button {
+    display: inline-flex;
+    align-items: center;
     color: black;
     border: 1px solid gray;
-    padding: 0.4rem;
-    background-color: #44db5840;
     cursor: default;
+    height: 3rem;
+}
+
+
+@media (max-width: 900px) {
+    #shoppingcart-buttons {
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    #checkout-button {
+        margin-top: 2rem;
+    }
 }
