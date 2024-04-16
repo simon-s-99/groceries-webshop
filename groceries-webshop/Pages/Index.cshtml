@@ -6,3 +6,9 @@
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
+
+<ul>
+    <!-- asp-route-id property is used to keep track of the logged in user's id -->
+    <li><a asp-page="/Search">Sök</a></li> 
+    <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
+</ul>
