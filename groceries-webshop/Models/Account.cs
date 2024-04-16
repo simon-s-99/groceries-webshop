@@ -6,9 +6,5 @@
         public string OpenIDIssuer { get; set; }
         public string OpenIDSubject { get; set; }
         public string Name { get; set; }
-        //public ICollection<Product>? ShoppingCart { get; } = new List<Product>(); // <-- not working
-
-        // navigation property
-        //public Product Product { get; set; }
     }
 }

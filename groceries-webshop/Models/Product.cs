@@ -32,8 +32,5 @@ namespace groceries_webshop.Models
 
         [JsonPropertyName("description")]
         public string? Description { get; set; }
-
-        // Navigation property 
-        //public List<Account> Accounts { get; set; }
     }
 }
