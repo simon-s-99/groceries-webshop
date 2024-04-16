@@ -15,17 +15,6 @@
 //        {
 //            _context = context;
 //        }
-//        public decimal GetTotal()
-//        {
-//            decimal total = 0;
-
-//            foreach (Product product in Account.ShoppingCart)
-//            {
-//                total += product.Price;
-//            }
-
-//            return total;
-//        }
 
 //        public void OnGet(int id)
 //        {
