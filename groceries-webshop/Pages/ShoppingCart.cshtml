@@ -12,10 +12,12 @@
         @{
             if (Model.Products.Count > 0)
             {
-                <tr><th>Name</th></tr>
-                <tr><th>Unit price</th></tr>
-                <tr><th>Total price</th></tr>
-                <tr><th>Image</th></tr>
+                <tr id="table-headings">
+                    <th>Name</th>
+                    <th>Unit price</th>
+                    <th>Total price</th>
+                    <th>Image</th>
+                </tr>
 
             }
             else
@@ -31,9 +33,12 @@
             {
                 foreach (var product in Model.Products)
                 {
-                    <tr><td>@product.Name</td></tr>
-                    <tr><td>@product.Price</td></tr>
-                    <tr><td>@product.Image</td></tr>
+                    <tr class="table-cells">
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Price</td>
+                        <td>@product.Image</td>
+                    </tr>
                 }
             }
         }
