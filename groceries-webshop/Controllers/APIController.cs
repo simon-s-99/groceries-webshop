@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using groceries_webshop.Models;
 
 namespace groceries_webshop.Controllers
 {
@@ -9,20 +10,50 @@ namespace groceries_webshop.Controllers
     [ApiController]
     public class APIController : ControllerBase
     {
-        private readonly AppDbContext database;
+        private readonly AppDbContext _database;
 
         public APIController(AppDbContext database)
         {
-            this.database = database;
+            _database = database;
         }
 
-        [HttpGet("/products")]
-        public IEnumerable<Models.Product> GetProducts([FromQuery] string? name, [FromQuery] string? category) 
+		public enum Category
+		{
+			Fruits,
+			Vegetables,
+			Nuts,
+			Legumes,
+			Condiments,
+			Other,
+			Berries,
+			Seeds
+		}
+
+		[HttpGet("/products")]
+        public List<Product> GetProducts([FromQuery] string? name, [FromQuery] Category? category) 
         {
 
-            IEnumerable<Models.Product> products = new List<Models.Product>();
+            List<Product> products = new List<Product>();
 
-            return products;
+			// If both name and category are specified, filter first by name, then by category
+			if (name != null && category != null)
+			{
+				products = _database.Products.Where(p => p.Name == name).Where(p => p.Category.Equals(category)).ToList();
+			}
+			else if (name != null)
+			{
+				products = _database.Products.Where(p => p.Name == name).ToList();
+			}
+			else if (category != null)
+			{
+				products = _database.Products.Where(p => p.Category.Equals(category)).ToList();
+			}
+			else
+			{
+				products = _database.Products.ToList();
+			}
+
+			return products;
         }
     }
 }
