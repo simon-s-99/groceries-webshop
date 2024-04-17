@@ -9,7 +9,7 @@ main {
     place-items: center;
 }
 
-#shoppingcart-table {
+#shoppingcart-table :not(#empty-message) {
     border: 1px solid black;
     text-align: center;
 }

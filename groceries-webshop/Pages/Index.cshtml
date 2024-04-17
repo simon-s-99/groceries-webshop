@@ -2,13 +2,16 @@
 @model IndexModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
 
-<ul>
-    <!-- asp-route-id property is used to keep track of the logged in user's id -->
-    <li><a asp-page="/Search">Sök</a></li> 
-    <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
-</ul>
+<nav class="menu">
+    <ul>
+        <li><a asp-page="/">Home</a></li>
+        <li><a asp-page="/Search">Sök</a></li> 
+        <!-- asp-route-id property is used to keep track of the logged in users id -->
+        <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
+    </ul>
+</nav>

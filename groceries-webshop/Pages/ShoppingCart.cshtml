@@ -2,6 +2,7 @@
 @model groceries_webshop.Pages.ShoppingCartModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
+    ViewData["Title"] = "Shopping Cart";
 }
 
 <h1>My Shopping Cart</h1>
@@ -18,7 +19,6 @@
                     <th>Total price</th>
                     <th>Image</th>
                 </tr>
-
             }
             else
             {
@@ -58,5 +58,6 @@
         </button>
     </form>
 
-    <a id="checkout-button" asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID"><img src="images/checkout-icon.svg" alt="Checkout icon" />Checkout</a>
+    <a id="checkout-button" asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID">
+        <img src="images/checkout-icon.svg" alt="Checkout icon" />Checkout</a>
 </section>
