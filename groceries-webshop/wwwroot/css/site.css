@@ -11,18 +11,29 @@ main {
 
 /* ========================= list of products =========================== */
 .list-of-products {
-    max-width: 800px;
+    padding: 0;
+    max-width: 960px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 }
 
 .list-of-products li {
+    list-style-type: none;
     max-width: 260px;
 }
 
-.list-of-products li img {
-    max-width: 260px;
+.list-of-products li p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-of-products li>img {
+    width: 310px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 160px;
+    filter: drop-shadow(-6px 6px 8px grey);
 }
 
 /* ========================= shoppingcart =========================== */
