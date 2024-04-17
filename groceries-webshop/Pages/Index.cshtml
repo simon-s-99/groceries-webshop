@@ -2,31 +2,39 @@
 @model IndexModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
 
 <nav class="menu">
-    <ul>
-        <li><a asp-page="/Index">Home</a></li>
-        <li><a asp-page="/Search">Sök</a></li> 
-        <!-- asp-route-id property is used to keep track of the logged in user's id -->
-        <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
-    </ul>
+	<ul>
+		<li><a asp-page="/Index">Home</a></li>
+		<li><a asp-page="/Search">Sök</a></li>
+		<!-- asp-route-id property is used to keep track of the logged in user's id -->
+		<li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
+	</ul>
 </nav>
 
 <ul>
-	@for (int i = 0; 
-		i < Model.Products.Count && i < 9; 
-		i++)
+	@for (int i = 0;
+			i < Model.Products.Count && i < 9;
+			i++)
 	{
 		<li>
 			<img src="/images/products/
 				@(Model.Products[i].Name.ToLower().Replace(" ", "")).jpg"
-				alt="Image of @Model.Products[i].Name" />
+				 alt="Image of @Model.Products[i].Name" />
 			<p>@Model.Products[i].Name</p>
 			<p>@Model.Products[i].Price VEF</p>
+
+			<form method="post">
+				<input type="hidden" name="accountID" value="@accessControl.LoggedInAccountID" />
+				<input type="hidden" name="productID" value="@Model.Products[i].ID" />
+				<button type="submit">
+					<img src="/images/add-to-cart-icon.svg" alt="Add to cart icon" /> Add to cart
+				</button>
+			</form>
 		</li>
 	}
 </ul>

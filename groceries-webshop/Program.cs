@@ -15,7 +15,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddCookie(options =>
 {
-    // When a user logs in to Google for the first time, create a local account for that user in our database.
+    // When a user logs in to Google for the first time, create a local account for that user in our _context.
     options.Events.OnValidatePrincipal += async context =>
     {
         var serviceProvider = context.HttpContext.RequestServices;
