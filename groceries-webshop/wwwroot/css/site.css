@@ -1,14 +1,31 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #015ccb50
-    
 }
+
 main {
     display: flex;
     flex-direction: column;
     place-items: center;
 }
 
+/* ========================= list of products =========================== */
+.list-of-products {
+    max-width: 800px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.list-of-products li {
+    max-width: 260px;
+}
+
+.list-of-products li img {
+    max-width: 260px;
+}
+
+/* ========================= shoppingcart =========================== */
 #shoppingcart-table :not(#empty-message) {
     border: 1px solid black;
     text-align: center;
@@ -34,6 +51,7 @@ main {
     justify-content: space-between;
 }
 
+/* ========================= checkout =========================== */
 #checkout-button, #return-button {
     text-decoration: none;
     background-color: #44db5840;
@@ -52,7 +70,7 @@ main {
     height: 3rem;
 }
 
-
+/* ========================= media queries =========================== */
 @media (max-width: 900px) {
     #shoppingcart-buttons {
         flex-direction: column;
