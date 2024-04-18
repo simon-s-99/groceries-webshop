@@ -34,19 +34,37 @@ nav.menu > ul {
         }
 
 /* ========================= list of products =========================== */
-.list-of-products {
-    padding: 0;
-    max-width: 960px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+
+#search-form button {
+    display: block;
+    margin: 0.5rem auto 0 auto;
 }
+#search-form label {
+    display: block;
+}
+
+#search-form label input {
+    display: inline-block;
+}
+
+    .list-of-products {
+        padding: 0;
+        max-width: 960px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
 
     .list-of-products li {
         list-style-type: none;
     }
 
-        .list-of-products li p {
+    .list-of-products li a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .list-of-products li a p {
             text-align: center;
             position: relative;
             bottom: 4.5rem;
@@ -55,6 +73,7 @@ nav.menu > ul {
             width: 180px;
             background: white;
             border-radius: 1rem;
+            pointer-events: none; /* To make the hover effect work even if the pointer is on the paragraph and not the image */
         }
 
         .list-of-products li form {
@@ -69,13 +88,18 @@ nav.menu > ul {
                 padding: 28px 4px 24px 4px;
             }
 
-        .list-of-products li > img {
+        .list-of-products li a img {
             width: 310px;
             height: 310px;
             object-fit: cover;
             border-radius: 160px;
             filter: drop-shadow(-6px 6px 8px grey);
         }
+
+            .list-of-products li a img:hover, .list-of-products li a img:hover + p {
+                transform: scale(1.03);
+                filter: contrast(105%);
+            }
 
 footer {
     display: flex;
@@ -113,6 +137,16 @@ footer {
     width: 30%;
     flex-direction: row;
     justify-content: space-between;
+}
+
+/* ========================= productdetails =========================== */
+
+#product-details {
+    text-align: center;
+}
+
+#product-details img {
+    border-radius: 10px;
 }
 
 /* ========================= checkout =========================== */
