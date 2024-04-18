@@ -11,8 +11,7 @@ namespace groceries_webshop.Models
         Condiments,
         Other,
         Berries,
-        Seeds,
-        All
+        Seeds
     }
 
     public class Product

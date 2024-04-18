@@ -17,15 +17,12 @@
 </nav>
 
 <form method="post" asp-page-handler="Search">
-
     <p>Search by</p>
 
     <label>
         Name
-        <input type="text" name="name" />
+        <input type="text" name="name" placeholder="Search for something..." />
     </label>
-
-    <p>or</p>
 
     <label>
         Category
@@ -39,12 +36,10 @@
             <option value="berries">Berries</option>
             <option value="seeds">Seeds</option>
             <option value="other">Other</option>
-
-            <option value="meat">Meat</option>
         </select>
     </label>
 
-    <button type="submit">Sök</button>
+    <button type="submit">Search</button>
 </form>
 
 <ul class="list-of-products">

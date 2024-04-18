@@ -63,7 +63,7 @@ namespace groceries_webshop.Pages
 
         public ActionResult OnPostSearch(string? name, Category? category)
         {
-            name = name == null ? "" : name;
+            name = string.IsNullOrEmpty(name) ? "" : name;
 
             return RedirectToPage("/Index", new { q = name, category});
             //if (name != null && category != Category.All)
@@ -88,25 +88,24 @@ namespace groceries_webshop.Pages
             //}
         }
 
-		public void OnGet(int pageNr, string q, Category category)
+		public void OnGet(int pageNr)
 		{
-
-            if (q != "" && category != Category.All)
-            {
-                Products = _context.Products.Where(p => p.Name.Contains(q)).Where(p => p.Category.Equals(category)).ToList();
-            }
-            else if (q != "")
-            {
-                Products = _context.Products.Where(p => p.Name.Contains(q)).ToList();
-            }
-            else if (category != Category.All)
-            {
-                Products = _context.Products.Where(p => p.Category.Equals(category)).ToList();
-            }
-            else
-            {
-                Products = _context.Products.ToList();
-            }
+            //if (q != "" && category != Category.All)
+            //{
+            //    Products = _context.Products.Where(p => p.Name.Contains(q)).Where(p => p.Category.Equals(category)).ToList();
+            //}
+            //else if (q != "")
+            //{
+            //    Products = _context.Products.Where(p => p.Name.Contains(q)).ToList();
+            //}
+            //else if (category != Category.All)
+            //{
+            //    Products = _context.Products.Where(p => p.Category.Equals(category)).ToList();
+            //}
+            //else
+            //{
+            //    Products = _context.Products.ToList();
+            //}
 
             // get products to display from _context 
             if (pageNr < 1) { pageNr = 1; }
