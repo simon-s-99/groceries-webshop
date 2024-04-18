@@ -36,6 +36,12 @@ main {
     filter: drop-shadow(-6px 6px 8px grey);
 }
 
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 /* ========================= shoppingcart =========================== */
 #shoppingcart-table :not(#empty-message) {
     border: 1px solid black;

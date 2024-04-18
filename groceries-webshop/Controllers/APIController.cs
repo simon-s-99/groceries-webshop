@@ -59,5 +59,14 @@ namespace groceries_webshop.Controllers
 
 			return products;
         }
+
+        [HttpGet("/products")]
+        public IEnumerable<Models.Product> GetProducts([FromQuery] string? name, [FromQuery] string? category) 
+        {
+
+            IEnumerable<Models.Product> products = new List<Models.Product>();
+
+            return products;
+        }
     }
 }

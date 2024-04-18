@@ -2,6 +2,7 @@
 using groceries_webshop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace groceries_webshop.Pages
 {
@@ -31,37 +32,44 @@ namespace groceries_webshop.Pages
 			return RedirectToPage();
 		}
 
-		public void OnGetPageNr(bool nextPage, int pageNr)
+		public ActionResult OnPostPageNr(bool nextPage, int pageNr, int? lastDisplayedProduct)
 		{
-			if (pageNr == 1 && !nextPage)
-			{
-				return;
-			}
-
-			//if (Math.Round(Products.Count / 9) == pageNr && nextPage)
-			//{ 
-			
-			//}
-
 			if (nextPage)
 			{
-				Products = _context.Products
-					.Skip((pageNr - 1) * 9)
-					.Take(9)
-					.ToList();
-				PageNr = pageNr;
+				// handle user being on last page and clicking on next button
+				int lastProduct = _context.Products
+					.OrderByDescending(p => p.ID)
+					.First()
+					.ID;
+				if (lastDisplayedProduct == lastProduct ||
+					lastDisplayedProduct == 0)
+				{
+					return RedirectToPage("/Index",
+						new { pageNr });
+				}
+				
+				// normal handling for next page (user is not on last page)
+				pageNr += 1;
+				return RedirectToPage("/Index",
+					new { pageNr });
 			}
 			else
 			{
-
+				pageNr = (pageNr == 1) ? 1 : pageNr - 1;
+				return RedirectToPage("/Index",
+					new { pageNr });
 			}
 		}
 
-		public void OnGet()
+		public void OnGet(int pageNr)
 		{
-			// get products from _context
-			Products = _context.Products.Take(9).ToList();
-			PageNr = 1;
+			// get products to display from _context 
+			if (pageNr < 1) { pageNr = 1; }
+			Products = _context.Products
+				.Skip(9 * (pageNr - 1))
+				.Take(9)
+				.ToList();
+			PageNr = pageNr;
 		}
 	}
 }
