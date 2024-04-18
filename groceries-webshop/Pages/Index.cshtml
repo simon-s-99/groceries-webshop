@@ -10,48 +10,71 @@
 <nav class="menu">
 	<ul>
 		<li><a asp-page="/">Home</a></li>
-		<li><a asp-page="/Index">Search</a></li>
 		<!-- asp-route-id property is used to keep track of the logged in user's id -->
 		<li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Shopping Cart</a></li>
 	</ul>
 </nav>
 
-<ul class="list-of-products">
-	@for (int i = 0; i < Model.Products.Count; i++)
-	{
-		<li>
-			<img src="/images/products/
-				@(Model.Products[i].Name.ToLower().Replace(" ", "")).jpg"
-				 alt="Image of @Model.Products[i].Name" />
-			<p>@Model.Products[i].Name @Model.Products[i].Price VEF</p>
+<form method="post" asp-page-handler="Search">
+    <label>
+        Name
+        <input type="text" name="q" placeholder="Search for something..." />
+    </label>
 
-			<form method="post">
-				<input type="hidden" name="accountID" value="@accessControl.LoggedInAccountID" />
-				<input type="hidden" name="productID" value="@Model.Products[i].ID" />
-				<button type="submit">
-					<img src="/images/add-to-cart-icon.svg" alt="Add to cart icon" /> Add to cart
-				</button>
-			</form>
-		</li>
-	}
+    <label>
+        Category
+        <select name="categoryString">
+            <option selected value="all">All</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Nuts">Nuts</option>
+            <option value="Legumes">Legumes</option>
+            <option value="Condiments">Condiments</option>
+            <option value="Berries">Berries</option>
+            <option value="Seeds">Seeds</option>
+            <option value="Other">Other</option>
+        </select>
+    </label>
+
+    <button type="submit">Search</button>
+</form>
+
+<ul class="list-of-products">
+    @for (int i = 0; i < Model.Products.Count; i++)
+    {
+        <li>
+            <img src="/images/products/
+				@(Model.Products[i].Name.ToLower().Replace(" ", "")).jpg"
+                 alt="Image of @Model.Products[i].Name" />
+            <p>@Model.Products[i].Name @Model.Products[i].Price VEF</p>
+
+            <form method="post">
+                <input type="hidden" name="accountID" value="@accessControl.LoggedInAccountID" />
+                <input type="hidden" name="productID" value="@Model.Products[i].ID" />
+                <button type="submit">
+                    <img src="/images/add-to-cart-icon.svg" alt="Add to cart icon" /> Add to cart
+                </button>
+            </form>
+        </li>
+    }
 </ul>
 
 <footer>
-	<form method="post" asp-page-handler="PageNr">
-		<input type="hidden" name="nextPage" value="false" />
-		<input type="hidden" name="pageNr" value="@Model.PageNr" />
-		<button id="previous-button" type="submit">
-			<img src="~/images/previous-arrow-icon.svg" alt="Previous page button" />
-		</button>
-	</form>
+    <form method="post" asp-page-handler="PageNr">
+        <input type="hidden" name="nextPage" value="false" />
+        <input type="hidden" name="pageNr" value="@Model.PageNr" />
+        <button type="submit">
+            <img src="~/images/previous-arrow-icon.svg" alt="Previous page button" /> 
+        </button>
+    </form>
 
-	<form method="post" asp-page-handler="PageNr">
-		<input type="hidden" name="nextPage" value="true" />
-		<input type="hidden" name="pageNr" value="@Model.PageNr" />
-		<input type="hidden" name="lastDisplayedProduct" 
-			value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
-		<button id="next-button" type="submit">
-			<img src="~/images/next-arrow-icon.svg" alt="Next page button" />
-		</button>
-	</form>
+    <form method="post" asp-page-handler="PageNr">
+        <input type="hidden" name="nextPage" value="true" />
+        <input type="hidden" name="pageNr" value="@Model.PageNr" />
+        <input type="hidden" name="lastDisplayedProduct" 
+            value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
+        <button type="submit">
+            <img src="~/images/next-arrow-icon.svg" alt="Next page button" />
+        </button>
+    </form>
 </footer>
