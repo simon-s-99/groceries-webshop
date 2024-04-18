@@ -17,40 +17,44 @@ namespace groceries_webshop.Controllers
             _database = database;
         }
 
-		public enum Category
-		{
-			Fruits,
-			Vegetables,
-			Nuts,
-			Legumes,
-			Condiments,
-			Other,
-			Berries,
-			Seeds
-		}
-
 		[HttpGet("/products")]
-        public List<Product> GetProducts([FromQuery] string? name, [FromQuery] Category? category) 
+        public List<ProductWithImage> GetProducts([FromQuery] string? name, [FromQuery] Category? category) 
         {
 
-            List<Product> products = new List<Product>();
+			List<Product> productsWithoutImage = new List<Product>();
+            List<ProductWithImage> products = new List<ProductWithImage>();
 
 			// If both name and category are specified, filter first by name, then by category
 			if (name != null && category != null)
 			{
-				products = _database.Products.Where(p => p.Name == name).Where(p => p.Category.Equals(category)).ToList();
+				productsWithoutImage = _database.Products.Where(p => p.Name == name).Where(p => p.Category.Equals(category)).ToList();
 			}
 			else if (name != null)
 			{
-				products = _database.Products.Where(p => p.Name == name).ToList();
+				productsWithoutImage = _database.Products.Where(p => p.Name == name).ToList();
 			}
 			else if (category != null)
 			{
-				products = _database.Products.Where(p => p.Category.Equals(category)).ToList();
+				productsWithoutImage = _database.Products.Where(p => p.Category.Equals(category)).ToList();
 			}
 			else
 			{
-				products = _database.Products.ToList();
+				productsWithoutImage = _database.Products.ToList();
+			}
+
+			foreach (Product product in productsWithoutImage)
+			{
+				ProductWithImage newProduct = new ProductWithImage
+				{
+					ID = product.ID,
+					Name = product.Name,
+					Price = product.Price,
+					Category = product.Category,
+					Description = product.Description,
+					Image = "https://localhost:5001/images/products/" + product.Name.ToLower().Replace(" ", "") + ".jpg"
+				};
+
+				products.Add(newProduct);
 			}
 
 			return products;
