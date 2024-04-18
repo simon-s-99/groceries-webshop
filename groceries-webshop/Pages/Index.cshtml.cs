@@ -90,13 +90,6 @@ namespace groceries_webshop.Pages
 
 		public void OnGet(int pageNr, string q, Category category)
 		{
-			// get products to display from _context 
-			if (pageNr < 1) { pageNr = 1; }
-			Products = _context.Products
-				.Skip(9 * (pageNr - 1))
-				.Take(9)
-				.ToList();
-			PageNr = pageNr;
 
             if (q != "" && category != Category.All)
             {
@@ -114,6 +107,14 @@ namespace groceries_webshop.Pages
             {
                 Products = _context.Products.ToList();
             }
-		}
+
+            // get products to display from _context 
+            if (pageNr < 1) { pageNr = 1; }
+            Products = _context.Products
+                .Skip(9 * (pageNr - 1))
+                .Take(9)
+                .ToList();
+            PageNr = pageNr;
+        }
 	}
 }
