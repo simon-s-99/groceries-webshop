@@ -109,7 +109,7 @@ namespace groceries_webshop.Controllers
 					Price = product.Price,
 					Category = product.Category,
 					Description = product.Description,
-					Image = "https://localhost:5000/images/products/" +
+					Image = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/products/" +
 						product.Name.ToLower().Replace(" ", "") +
 						".jpg"
 				};
