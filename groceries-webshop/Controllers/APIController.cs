@@ -38,7 +38,7 @@ namespace groceries_webshop.Controllers
 			if (name != null && category != null)
 			{
 				productsWithoutImage = _database.Products
-					.Where(p => p.Name == name)
+					.Where(p => p.Name.Contains(name))
 					.Where(p => p.Category
 					.Equals(category))
 					.Skip(postsToSkip)
@@ -48,8 +48,8 @@ namespace groceries_webshop.Controllers
 			else if (name != null)
 			{
 				productsWithoutImage = _database.Products
-					.Where(p => p.Name == name)
-					.Skip(postsToSkip)
+                    .Where(p => p.Name.Contains(name))
+                    .Skip(postsToSkip)
 					.Take(resultsPerPage)
 					.ToList();
 			}
