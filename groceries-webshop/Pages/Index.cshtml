@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model IndexModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
@@ -37,18 +37,20 @@
 </ul>
 
 <footer>
-	<form method="get" asp-page-handler="PageNr">
+	<form method="post" asp-page-handler="PageNr">
 		<input type="hidden" name="nextPage" value="false" />
 		<input type="hidden" name="pageNr" value="@Model.PageNr" />
-		<button type="submit">
+		<button id="previous-button" type="submit">
 			<img src="~/images/previous-arrow-icon.svg" alt="Previous page button" />
 		</button>
 	</form>
 
-	<form method="get" asp-page-handler="PageNr">
+	<form method="post" asp-page-handler="PageNr">
 		<input type="hidden" name="nextPage" value="true" />
 		<input type="hidden" name="pageNr" value="@Model.PageNr" />
-		<button type="submit">
+		<input type="hidden" name="lastDisplayedProduct" 
+			value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
+		<button id="next-button" type="submit">
 			<img src="~/images/next-arrow-icon.svg" alt="Next page button" />
 		</button>
 	</form>
