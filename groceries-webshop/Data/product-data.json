@@ -2,157 +2,157 @@
   {
     "name": "Apple",
     "price": 55.67,
-    "category": 1,
+    "category": 0,
     "description": "Sweet and crisp, apples are perfect for snacking, baking, or making into sauces and pies."
   },
   {
     "name": "Carrot",
     "price": 32.90,
-    "category": 2,
+    "category": 1,
     "description": "Crunchy and vibrant, carrots are great for snacking, salads, or roasting as a side dish."
   },
   {
     "name": "Cashews",
     "price": 40.56,
-    "category": 3,
+    "category": 2,
     "description": "Creamy and rich, cashews are perfect for snacking, adding to stir-fries, or making into creamy sauces."
   },
   {
     "name": "Chickpeas",
     "price": 29.99,
-    "category": 4,
+    "category": 3,
     "description": "Versatile and protein-packed, chickpeas are perfect for making hummus, salads, or roasting for a crunchy snack."
   },
   {
     "name": "Frying Pan",
     "price": 299.99,
-    "category": 6,
+    "category": 5,
     "description": "Good frying pan."
   },
   {
     "name": "Blueberries",
     "price": 47.89,
-    "category": 7,
+    "category": 6,
     "description": "Sweet and antioxidant-rich, blueberries are perfect for snacking, baking, or adding to smoothies and yogurt bowls."
   },
   {
     "name": "Chia Seeds",
     "price": 35.45,
-    "category": 8,
+    "category": 7,
     "description": "Nutrient-dense and versatile, chia seeds are perfect for adding to smoothies, oatmeal, or making into pudding."
   },
   {
     "name": "Strawberries",
     "price": 60.34,
-    "category": 7,
+    "category": 6,
     "description": "Juicy and sweet, strawberries are perfect for snacking, adding to salads, or making into jams and desserts."
   },
   {
     "name": "Bell Pepper",
     "price": 18.76,
-    "category": 2,
+    "category": 1,
     "description": "Colorful and crunchy, bell peppers are great for salads, stir-fries, or stuffing with grains and proteins."
   },
   {
     "name": "Peanuts",
     "price": 25.67,
-    "category": 3,
+    "category": 2,
     "description": "Crunchy and satisfying, peanuts are perfect for snacking, adding to trail mixes, or making into peanut butter."
   },
   {
     "name": "Lentils",
     "price": 18.50,
-    "category": 4,
+    "category": 3,
     "description": "High in protein and fiber, lentils are versatile 4 perfect for soups, stews, or salads."
   },
   {
     "name": "Soy Sauce",
     "price": 15.44,
-    "category": 5,
+    "category": 4,
     "description": "Savory and flavorful, soy sauce is perfect for seasoning stir-fries, marinades, or dipping sushi."
   },
   {
     "name": "Raspberries",
     "price": 40.98,
-    "category": 7,
+    "category": 6,
     "description": "Sweet and tart, raspberries are packed with antioxidants and perfect for snacking or adding to desserts."
   },
   {
     "name": "Sunflower Seeds",
     "price": 12.11,
-    "category": 8,
+    "category": 7,
     "description": "Crunchy and nutritious, sunflower seeds are perfect for snacking, adding to salads, or baking into breads and muffins."
   },
   {
     "name": "Banana",
     "price": 15.67,
-    "category": 1,
+    "category": 0,
     "description": "Naturally sweet and portable, bananas are great for snacking, smoothies, or adding to baked goods."
   },
   {
     "name": "Cucumber",
     "price": 6.78,
-    "category": 2,
+    "category": 1,
     "description": "Refreshing and low in calories, cucumbers are great for salads, sandwiches, or dipping in hummus."
   },
   {
     "name": "Pumpkin Seeds",
     "price": 22.10,
-    "category": 8,
+    "category": 7,
     "description": "Nutrient-rich and crunchy, pumpkin seeds are perfect for snacking, adding to salads, or topping soups and stews."
   },
   {
     "name": "Black Beans",
     "price": 25.67,
-    "category": 4,
+    "category": 3,
     "description": "High in protein and fiber, black beans are great for soups, salads, tacos, or as a side dish."
   },
   {
     "name": "Orange",
     "price": 18.34,
-    "category": 1,
+    "category": 0,
     "description": "Juicy and citrusy, oranges are perfect for snacking, juicing, or adding to salads and desserts."
   },
   {
     "name": "Broccoli",
     "price": 20.99,
-    "category": 2,
+    "category": 1,
     "description": "Nutrient-rich and crunchy, broccoli is a superfood that can be steamed, roasted, or stir-fried."
   },
   {
     "name": "Walnuts",
     "price": 50.76,
-    "category": 3,
+    "category": 2,
     "description": "Rich and earthy, walnuts are perfect for snacking, baking, or adding to salads and oatmeal."
   },
   {
     "name": "Kidney Beans",
     "price": 28.50,
-    "category": 4,
+    "category": 3,
     "description": "High in protein and fiber, kidney beans are perfect for soups, stews, chili, or as a side dish."
   },
 {
     "name": "Mango",
     "price": 30.45,
-    "category": 1,
+    "category": 0,
     "description": "Sweet and tropical, mangoes are perfect for snacking, smoothies, or adding to salads and salsas."
   },
   {
     "name": "Zucchini",
     "price": 12.99,
-    "category": 2,
+    "category": 1,
     "description": "Versatile and low in calories, zucchini is great for grilling, sautéing, or baking into breads and muffins."
   },
   {
     "name": "Pistachios",
     "price": 45.80,
-    "category": 3,
+    "category": 2,
     "description": "Nutty and delicious, pistachios are perfect for snacking, adding to salads, or making into pesto."
   },
   {
     "name": "Cannellini Beans",
     "price": 9.95,
-    "category": 4,
+    "category": 3,
     "description": "Small white beans, they taste good :)"
   }
 ]
