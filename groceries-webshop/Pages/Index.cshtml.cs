@@ -23,14 +23,14 @@ namespace groceries_webshop.Pages
         // dictionary to map the string from the query to a category
         Dictionary<string, Category> categoryMap = new Dictionary<string, Category>
         {
-            { "fruits", Category.Fruits },
-            { "vegetables", Category.Vegetables },
-            { "nuts", Category.Nuts },
-            { "legumes", Category.Legumes },
-            { "condiments", Category.Condiments },
-            { "other", Category.Other },
-            { "berries", Category.Berries },
-            { "seeds", Category.Seeds }
+            { "Fruits", Category.Fruits },
+            { "Vegetables", Category.Vegetables },
+            { "Nuts", Category.Nuts },
+            { "Legumes", Category.Legumes },
+            { "Condiments", Category.Condiments },
+            { "Other", Category.Other },
+            { "Berries", Category.Berries },
+            { "Seeds", Category.Seeds }
         };
 
         public ActionResult OnPost(int accountID, int productID)
@@ -79,8 +79,9 @@ namespace groceries_webshop.Pages
         {
             q = string.IsNullOrEmpty(q) ? "" : q;
 
-            Category category = (Category)(-1); // THIS SHOULD NOT WORK, ERROR INBOUND
-            if (categoryString != "all")
+            Category? category = null;
+
+            if (categoryString != "all" && !string.IsNullOrEmpty(categoryString))
             {
                 if (categoryMap.TryGetValue(categoryString, out _))
                 {
@@ -88,23 +89,7 @@ namespace groceries_webshop.Pages
                 }
             }
 
-            if (q != "" && (int)category >= 0)
-            {
-                return RedirectToPage("/Index", new { q, category });
-            }
-            else if (q != "")
-            {
-                return RedirectToPage("/Index", new { q });
-            }
-            else if (category != "all")
-            {
-                // mapå herer
-                return RedirectToPage("/Index", new { category });
-            }
-            else
-            {
-                return RedirectToPage("/Index");
-            }
+            return RedirectToPage("/Index", new { q, category });
         }
 
         public void OnGet(int pageNr, string? q, Category? category)
@@ -118,29 +103,31 @@ namespace groceries_webshop.Pages
                     .Take(9)
                     .ToList();
                 PageNr = pageNr;
-
-                return;
             }
-
-            if (q != "" && category != "all")
+            else
             {
-                Products = _context.Products
-                    .Where(p => p.Name.Contains(q))
-                    .Where(p => p.Category.Equals(category))
-                    .ToList();
-            }
-            else if (q != "")
-            {
-                Products = _context.Products
-                    .Where(p => p.Name.Contains(q))
-                    .Take(9)
-                    .ToList();
-            }
-            else if (category != "all")
-            {
-                Products = _context.Products
-                    .Where(p => p.Category.Equals(category))
-                    .ToList();
+                if (!string.IsNullOrEmpty(q) && category != null)
+                {
+                    Products = _context.Products
+                        .Where(p => p.Name.Contains(q))
+                        .Where(p => p.Category == category)
+                        .Take(9)
+                        .ToList();
+                }
+                else if (category == null)
+                {
+                    Products = _context.Products
+                        .Where(p => p.Name.Contains(q))
+                        .Take(9)
+                        .ToList();
+                }
+                else
+                {
+                    Products = _context.Products
+                        .Where(p => p.Category == category)
+                        .Take(9)
+                        .ToList();
+                }
             }
         }
     }
