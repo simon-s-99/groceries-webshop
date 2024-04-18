@@ -10,18 +10,15 @@
 <nav class="menu">
 	<ul>
 		<li><a asp-page="/">Home</a></li>
-		<li><a asp-page="/Index">Search</a></li>
 		<!-- asp-route-id property is used to keep track of the logged in user's id -->
 		<li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Shopping Cart</a></li>
 	</ul>
 </nav>
 
 <form method="post" asp-page-handler="Search">
-    <p>Search by</p>
-
     <label>
         Name
-        <input type="text" name="name" placeholder="Search for something..." />
+        <input type="text" name="q" placeholder="Search for something..." />
     </label>
 
     <label>
@@ -63,17 +60,19 @@
 </ul>
 
 <footer>
-    <form method="get" asp-page-handler="PageNr">
+    <form method="post" asp-page-handler="PageNr">
         <input type="hidden" name="nextPage" value="false" />
         <input type="hidden" name="pageNr" value="@Model.PageNr" />
         <button type="submit">
-            <img src="~/images/previous-arrow-icon.svg" alt="Previous page button" />
+            <img src="~/images/previous-arrow-icon.svg" alt="Previous page button" /> 
         </button>
     </form>
 
-    <form method="get" asp-page-handler="PageNr">
+    <form method="post" asp-page-handler="PageNr">
         <input type="hidden" name="nextPage" value="true" />
         <input type="hidden" name="pageNr" value="@Model.PageNr" />
+        <input type="hidden" name="lastDisplayedProduct" 
+            value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
         <button type="submit">
             <img src="~/images/next-arrow-icon.svg" alt="Next page button" />
         </button>
