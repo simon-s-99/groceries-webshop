@@ -1,14 +1,57 @@
-﻿@page
+﻿@page 
 @model IndexModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home Page";
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
 
-<ul>
-    <!-- asp-route-id property is used to keep track of the logged in user's id -->
-    <li><a asp-page="/Search">Sök</a></li> 
-    <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
+<nav class="menu">
+	<ul>
+		<li><a asp-page="/Index">Home</a></li>
+		<li><a asp-page="/Search">Sök</a></li>
+		<!-- asp-route-id property is used to keep track of the logged in user's id -->
+		<li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Varukorg</a></li>
+	</ul>
+</nav>
+
+<ul class="list-of-products">
+	@for (int i = 0; i < Model.Products.Count; i++)
+	{
+		<li>
+			<img src="/images/products/
+				@(Model.Products[i].Name.ToLower().Replace(" ", "")).jpg"
+				 alt="Image of @Model.Products[i].Name" />
+			<p>@Model.Products[i].Name @Model.Products[i].Price VEF</p>
+
+			<form method="post">
+				<input type="hidden" name="accountID" value="@accessControl.LoggedInAccountID" />
+				<input type="hidden" name="productID" value="@Model.Products[i].ID" />
+				<button type="submit">
+					<img src="/images/add-to-cart-icon.svg" alt="Add to cart icon" /> Add to cart
+				</button>
+			</form>
+		</li>
+	}
 </ul>
+
+<footer>
+	<form method="post" asp-page-handler="PageNr">
+		<input type="hidden" name="nextPage" value="false" />
+		<input type="hidden" name="pageNr" value="@Model.PageNr" />
+		<button id="previous-button" type="submit">
+			<img src="~/images/previous-arrow-icon.svg" alt="Previous page button" />
+		</button>
+	</form>
+
+	<form method="post" asp-page-handler="PageNr">
+		<input type="hidden" name="nextPage" value="true" />
+		<input type="hidden" name="pageNr" value="@Model.PageNr" />
+		<input type="hidden" name="lastDisplayedProduct" 
+			value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
+		<button id="next-button" type="submit">
+			<img src="~/images/next-arrow-icon.svg" alt="Next page button" />
+		</button>
+	</form>
+</footer>

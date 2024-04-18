@@ -36,10 +36,10 @@ namespace groceries_webshop.Pages
             _context.SaveChanges();
         }
 
-        public IActionResult OnPost(int id)
+        public ActionResult OnPost(int id)
         {
             ClearCart(id);
-            return RedirectToPage("/ShoppingCart");
+            return RedirectToPage();
         }
 
         public void OnGet(int id)

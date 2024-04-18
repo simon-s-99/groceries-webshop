@@ -27,7 +27,7 @@ namespace groceries_webshop.Pages
                 return Forbid();
             }
 
-            // Find the account in the database.
+            // Find the account in the _context.
             var account = database.Accounts.Find(accountID);
             string subject = account.OpenIDSubject;
             string issuer = account.OpenIDIssuer;

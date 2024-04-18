@@ -21,9 +21,6 @@ namespace groceries_webshop.Models
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("image")]
-        public string? Image { get; set; }
-
         [JsonPropertyName("price")]
         public decimal Price { get; set; }
 

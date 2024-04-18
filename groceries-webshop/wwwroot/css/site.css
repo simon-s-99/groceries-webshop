@@ -1,15 +1,49 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #015ccb50
-    
 }
+
 main {
     display: flex;
     flex-direction: column;
     place-items: center;
 }
 
-#shoppingcart-table {
+/* ========================= list of products =========================== */
+.list-of-products {
+    padding: 0;
+    max-width: 960px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.list-of-products li {
+    list-style-type: none;
+    max-width: 260px;
+}
+
+.list-of-products li p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-of-products li>img {
+    width: 310px;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 160px;
+    filter: drop-shadow(-6px 6px 8px grey);
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* ========================= shoppingcart =========================== */
+#shoppingcart-table :not(#empty-message) {
     border: 1px solid black;
     text-align: center;
 }
@@ -34,6 +68,7 @@ main {
     justify-content: space-between;
 }
 
+/* ========================= checkout =========================== */
 #checkout-button, #return-button {
     text-decoration: none;
     background-color: #44db5840;
@@ -52,7 +87,7 @@ main {
     height: 3rem;
 }
 
-
+/* ========================= media queries =========================== */
 @media (max-width: 900px) {
     #shoppingcart-buttons {
         flex-direction: column;

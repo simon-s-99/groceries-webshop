@@ -2,6 +2,7 @@
 @model groceries_webshop.Pages.ShoppingCartModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
+    ViewData["Title"] = "Shopping Cart";
 }
 
 <h1>My Shopping Cart</h1>
@@ -15,10 +16,10 @@
                 <tr id="table-headings">
                     <th>Name</th>
                     <th>Unit price</th>
-                    <th>Total price</th>
+                    <th>Units</th>
+                    <th>Total price (units * unit price)</th>
                     <th>Image</th>
                 </tr>
-
             }
             else
             {
@@ -31,13 +32,29 @@
         @{
             if (Model.Products.Count > 0)
             {
+                Dictionary<Models.Product, int> map = new Dictionary<Models.Product, int>();
                 foreach (var product in Model.Products)
                 {
+                    int amount = 1;
+                    if (map.TryGetValue(product, out amount))
+                    {
+                        map[product] = amount + 1;
+                    }
+                    else
+                    {
+                        map.Add(product, 1);
+                    }
+                }
+                
+                foreach (var product in map)
+                {
                     <tr class="table-cells">
-                        <td>@product.Name</td>
-                        <td>@product.Price</td>
-                        <td>@product.Price</td>
-                        <td>@product.Image</td>
+                        <td>@product.Key.Name</td>
+                        <td>@product.Key.Price</td>
+                        <td>@product.Value</td>
+                        <td>@(product.Key.Price * product.Value)</td>
+                        <td><img src="/images/products/
+				@(product.Key.Name.ToLower().Replace(" ", "")).jpg" /></td>
                     </tr>
                 }
             }
@@ -58,5 +75,6 @@
         </button>
     </form>
 
-    <a id="checkout-button" asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID"><img src="images/checkout-icon.svg" alt="Checkout icon" />Checkout</a>
+    <a id="checkout-button" asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID">
+        <img src="images/checkout-icon.svg" alt="Checkout icon" />Checkout</a>
 </section>
