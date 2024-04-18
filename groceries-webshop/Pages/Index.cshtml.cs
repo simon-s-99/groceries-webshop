@@ -2,6 +2,7 @@
 using groceries_webshop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
 
 namespace groceries_webshop.Pages
 {
@@ -56,6 +57,27 @@ namespace groceries_webshop.Pages
 
 			}
 		}
+
+		public void OnPostSearch(string? name, Category? category)
+		{
+
+            if (name != null && category != null)
+            {
+                Products = _context.Products.Where(p => p.Name == name).Where(p => p.Category.Equals(category)).ToList();
+            }
+            else if (name != null)
+            {
+                Products = _context.Products.Where(p => p.Name == name).ToList();
+            }
+            else if (category != null)
+            {
+                Products = _context.Products.Where(p => p.Category.Equals(category)).ToList();
+            }
+            else
+            {
+                Products = _context.Products.ToList();
+            }
+        }
 
 		public void OnGet()
 		{

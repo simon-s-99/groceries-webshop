@@ -36,6 +36,8 @@ main {
     filter: drop-shadow(-6px 6px 8px grey);
 }
 
+
+
 /* ========================= shoppingcart =========================== */
 #shoppingcart-table :not(#empty-message) {
     border: 1px solid black;
