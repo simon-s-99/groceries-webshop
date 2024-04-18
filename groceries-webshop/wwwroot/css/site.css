@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #015ccb50
@@ -9,6 +14,25 @@ main {
     place-items: center;
 }
 
+/* ========================= navbar/menu =========================== */
+nav.menu > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+    nav.menu > ul li {
+        padding: 0 2rem 1rem 2rem;
+    }
+
+        nav.menu > ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 200%;
+            text-transform: uppercase;
+            letter-spacing: 0.1ch;
+        }
+
 /* ========================= list of products =========================== */
 .list-of-products {
     padding: 0;
@@ -18,23 +42,40 @@ main {
     justify-content: space-between;
 }
 
-.list-of-products li {
-    list-style-type: none;
-    max-width: 260px;
-}
+    .list-of-products li {
+        list-style-type: none;
+    }
 
-.list-of-products li p {
-    margin-left: auto;
-    margin-right: auto;
-}
+        .list-of-products li p {
+            text-align: center;
+            position: relative;
+            bottom: 4.5rem;
+            left: 4rem;
+            font-weight: bold;
+            width: 180px;
+            background: white;
+            border-radius: 1rem;
+        }
 
-.list-of-products li>img {
-    width: 310px;
-    height: 310px;
-    object-fit: cover;
-    border-radius: 160px;
-    filter: drop-shadow(-6px 6px 8px grey);
-}
+        .list-of-products li form {
+            text-align: center;
+        }
+
+            .list-of-products li form button {
+                position: relative;
+                bottom: 2.5rem;
+                background-color: #7de54d40;
+                border-radius: 4px;
+                padding: 28px 4px 24px 4px;
+            }
+
+        .list-of-products li > img {
+            width: 310px;
+            height: 310px;
+            object-fit: cover;
+            border-radius: 160px;
+            filter: drop-shadow(-6px 6px 8px grey);
+        }
 
 footer {
     display: flex;
@@ -55,6 +96,12 @@ footer {
 #shoppingcart-table .table-cells td {
     border: 2px solid black;
 }
+
+    #shoppingcart-table .table-cells td img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
 
 #empty-message {
     color: #cb1717
@@ -78,7 +125,7 @@ footer {
     background-color: #ee343461;
 }
 
-#checkout-button, #return-button, #empty-cart-button {
+#checkout-button, #return-button, #empty-cart-button, .list-of-products li form button {
     display: inline-flex;
     align-items: center;
     color: black;

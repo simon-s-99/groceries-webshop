@@ -7,8 +7,18 @@
 
 <h1>Thank you for your purchase!</h1>
 
+<nav class="menu">
+	<ul>
+		<li><a asp-page="/">Home</a></li>
+		<li><a asp-page="/Index">Search</a></li>
+		<!-- asp-route-id property is used to keep track of the logged in user's id -->
+		<li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Shopping Cart</a></li>
+	</ul>
+</nav>
+
 <h2>Total: @Model.GetTotal() VEF</h2>
 
 <p>A receipt has been sent to your email.</p>
 
 <a id="return-button" asp-page="/Index">Return to home page</a>
+
