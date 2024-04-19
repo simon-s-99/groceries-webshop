@@ -1,0 +1,36 @@
+﻿@page
+@model groceries_webshop.Pages.ProductDetailsModel
+@inject groceries_webshop.Data.AccessControl accessControl
+@{
+}
+
+<h1>Details</h1>
+
+<nav class="menu">
+    <ul>
+        <li><a asp-page="/Index">Home</a></li>
+        <!-- asp-route-id property is used to keep track of the logged in user's id -->
+        <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Shopping Cart</a></li>
+    </ul>
+</nav>
+
+<section id="product-details">
+    <section>
+        <img src="/images/products/@(Model.SelectedProduct.Name.ToLower().Replace(" ", "")).jpg"
+             alt="Image of @Model.SelectedProduct.Name" />
+        <form method="post">
+            <input type="hidden" name="accountID" value="@accessControl.LoggedInAccountID" />
+            <input type="hidden" name="productID" value="@Model.SelectedProduct.ID" />
+            <button type="submit" id="add-to-cart-button">
+                <img src="/images/add-to-cart-icon.svg" alt="Add to cart icon" /> Add to cart
+            </button>
+        </form>
+    </section>
+
+    <section>
+        <p>@Model.SelectedProduct.Name</p>
+        <p>Category - @Model.SelectedProduct.Category</p>
+        <p>Price - @Model.SelectedProduct.Price VEF</p>
+        <p>@Model.SelectedProduct.Description</p>
+    </section>
+</section>

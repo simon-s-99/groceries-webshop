@@ -1,8 +1,8 @@
-﻿@page 
+﻿@page
 @model IndexModel
 @inject groceries_webshop.Data.AccessControl accessControl
 @{
-	ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page";
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
@@ -15,7 +15,7 @@
 	</ul>
 </nav>
 
-<form method="post" asp-page-handler="Search">
+<form id="search-form" method="post" asp-page-handler="Search">
     <label>
         Name
         <input type="text" name="q" placeholder="Search for something..." />
@@ -43,10 +43,12 @@
     @for (int i = 0; i < Model.Products.Count; i++)
     {
         <li>
-            <img src="/images/products/
+            <a asp-page="/ProductDetails" asp-route-id="@Model.Products[i].ID">
+                <img src="/images/products/
 				@(Model.Products[i].Name.ToLower().Replace(" ", "")).jpg"
-                 alt="Image of @Model.Products[i].Name" />
-            <p>@Model.Products[i].Name @Model.Products[i].Price VEF</p>
+                     alt="Image of @Model.Products[i].Name" />
+                <p>@Model.Products[i].Name @Model.Products[i].Price VEF</p>
+            </a>
 
             <form method="post">
                 <input type="hidden" name="accountID" value="@accessControl.LoggedInAccountID" />
@@ -64,15 +66,15 @@
         <input type="hidden" name="nextPage" value="false" />
         <input type="hidden" name="pageNr" value="@Model.PageNr" />
         <button type="submit">
-            <img src="~/images/previous-arrow-icon.svg" alt="Previous page button" /> 
+            <img src="~/images/previous-arrow-icon.svg" alt="Previous page button" />
         </button>
     </form>
 
     <form method="post" asp-page-handler="PageNr">
         <input type="hidden" name="nextPage" value="true" />
         <input type="hidden" name="pageNr" value="@Model.PageNr" />
-        <input type="hidden" name="lastDisplayedProduct" 
-            value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
+        <input type="hidden" name="lastDisplayedProduct"
+               value="@Model.Products.OrderByDescending(p => p.ID).FirstOrDefault().ID" />
         <button type="submit">
             <img src="~/images/next-arrow-icon.svg" alt="Next page button" />
         </button>
