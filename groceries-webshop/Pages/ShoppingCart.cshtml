@@ -53,7 +53,7 @@
                         map.Add(product, 1);
                     }
                 }
-                
+
                 foreach (var product in map)
                 {
                     <tr class="table-cells">
@@ -61,8 +61,10 @@
                         <td>@product.Key.Price</td>
                         <td>@product.Value</td>
                         <td>@(product.Key.Price * product.Value)</td>
-                        <td><img src="/images/products/
-				@(product.Key.Name.ToLower().Replace(" ", "")).jpg" /></td>
+                        <td>
+                            <img src="/images/products/
+                        @(product.Key.Name.ToLower().Replace(" ", "")).jpg" />
+                        </td>
                     </tr>
                 }
             }
@@ -76,13 +78,18 @@
 }
 
 <section id="shoppingcart-buttons">
-    <form method="post" asp-route-id="@accessControl.LoggedInAccountID">
+    <form method="post" asp-route-id="@accessControl.LoggedInAccountID" asp-page-handler="EmptyCart">
         <button id="empty-cart-button" type="submit">
             <img src="images/empty-shoppingcart-icon.svg" alt="Empty shopping cart icon" />
             Empty cart
         </button>
     </form>
 
-    <a id="checkout-button" asp-page="/OrderConfirmation" asp-route-id="@accessControl.LoggedInAccountID">
-        <img src="images/checkout-icon.svg" alt="Checkout icon" />Checkout</a>
+    <form method="post" asp-page-handler="Checkout" asp-route-id="@accessControl.LoggedInAccountID">
+        <input type="hidden" name="total" value="@Model.GetTotal()" />
+        <button id="checkout-button" type="submit">
+            <img src="images/checkout-icon.svg" alt="Checkout icon" />
+            Checkout
+        </button>
+    </form>
 </section>
