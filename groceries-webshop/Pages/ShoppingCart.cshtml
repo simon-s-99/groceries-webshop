@@ -15,62 +15,54 @@
     </ul>
 </nav>
 
-<table id="shoppingcart-table">
-
-    <thead>
-        @{
-            if (Model.Products.Count > 0)
-            {
-                <tr id="table-headings">
-                    <th>Name</th>
-                    <th>Unit price</th>
-                    <th>Units</th>
-                    <th>Total price (units * unit price)</th>
-                    <th>Image</th>
-                </tr>
-            }
-            else
-            {
-                <tr><th id="empty-message">Your shopping cart is empty.</th></tr>
-            }
+<div id="shoppingcart-table">
+    @{
+        if (Model.Products.Count > 0)
+        {
+            <ol id="table-headings">
+                <li>Name</li>
+                <li>Unit price</li>
+                <li>Units</li>
+                <li>Total price</li>
+                <li>Image</li>
+            </ol>
         }
-    </thead>
+        else
+        {
+            <p id="empty-message">Your shopping cart is empty.</p>
+        }
 
-    <tbody>
-        @{
-            if (Model.Products.Count > 0)
+        if (Model.Products.Count > 0)
+        {
+            Dictionary<Models.Product, int> map = new Dictionary<Models.Product, int>();
+            foreach (var product in Model.Products)
             {
-                Dictionary<Models.Product, int> map = new Dictionary<Models.Product, int>();
-                foreach (var product in Model.Products)
+                int amount = 1;
+                if (map.TryGetValue(product, out amount))
                 {
-                    int amount = 1;
-                    if (map.TryGetValue(product, out amount))
-                    {
-                        map[product] = amount + 1;
-                    }
-                    else
-                    {
-                        map.Add(product, 1);
-                    }
+                    map[product] = amount + 1;
                 }
-
-                foreach (var product in map)
+                else
                 {
-                    <tr class="table-cells">
-                        <td>@product.Key.Name</td>
-                        <td>@product.Key.Price</td>
-                        <td>@product.Value</td>
-                        <td>@(product.Key.Price * product.Value)</td>
-                        <td>
-                            <img src="/images/products/
-                        @(product.Key.Name.ToLower().Replace(" ", "")).jpg" />
-                        </td>
-                    </tr>
+                    map.Add(product, 1);
                 }
             }
+
+            foreach (var product in map)
+            {
+                <ol class="table-cells">
+                    <li>@product.Key.Name </li>
+                    <li>@product.Key.Price VEF</li>
+                    <li>@product.Value</li>
+                    <li>@(product.Key.Price * product.Value) VEF</li>
+                    <li>
+                        <img src="/images/products/@(product.Key.Name.ToLower().Replace(" ", "")).jpg" />
+                    </li>
+                </ol>
+            }
         }
-    </tbody>
-</table>
+    }
+</div>
 
 @if (Model.Products.Count > 0)
 {

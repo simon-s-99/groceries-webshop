@@ -39,42 +39,44 @@ nav.menu > ul {
     display: block;
     margin: 0.5rem auto 0 auto;
 }
+
 #search-form label {
     display: block;
 }
 
-#search-form label input {
-    display: inline-block;
-}
-
-    .list-of-products {
-        padding: 0;
-        max-width: 960px;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
+    #search-form label input {
+        display: inline-block;
     }
+
+.list-of-products {
+    max-width: 960px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
 
     .list-of-products li {
         list-style-type: none;
     }
 
-    .list-of-products li a {
-        text-decoration: none;
-        color: black;
-    }
-
-        .list-of-products li a p {
-            text-align: center;
-            position: relative;
-            bottom: 4.5rem;
-            left: 4rem;
-            font-weight: bold;
-            width: 180px;
-            background: white;
-            border-radius: 1rem;
-            pointer-events: none; /* To make the hover effect work even if the pointer is on the paragraph and not the image */
+        .list-of-products li a {
+            text-decoration: none;
+            color: black;
         }
+
+            .list-of-products li a p {
+                text-align: center;
+                position: relative;
+                bottom: 4.5rem;
+                left: 4rem;
+                font-weight: bold;
+                width: 180px;
+                background: white;
+                border-radius: 1rem;
+                /* To make the hover effect work even if 
+                the pointer is on the paragraph and not the image */
+                pointer-events: none;
+            }
 
         .list-of-products li form {
             text-align: center;
@@ -108,24 +110,47 @@ footer {
 }
 
 /* ========================= shoppingcart =========================== */
-#shoppingcart-table :not(#empty-message) {
-    border: 1px solid black;
-    text-align: center;
+#shoppingcart-table {
 }
 
-#shoppingcart-table #table-headings th {
-    border: 2px double black;
-}
-
-#shoppingcart-table .table-cells td {
-    border: 2px solid black;
-}
-
-    #shoppingcart-table .table-cells td img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
+    #shoppingcart-table #table-headings {
+        text-align: left;
+        font-weight: bold;
+        list-style-type: none;
+        border-bottom: 1px solid rgb(128, 128, 128, 0.6);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding-bottom: 1rem;
     }
+
+    #shoppingcart-table #table-headings li {
+        padding-left: 0.5rem;
+    }
+
+    #shoppingcart-table .table-cells {
+        text-align: left;
+        align-items: center;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        border-bottom: 1px solid rgb(128, 128, 128, 0.6);
+    }
+
+        #shoppingcart-table .table-cells img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        #shoppingcart-table .table-cells li {
+            border-right: 1px solid rgb(128, 128, 128, 0.6);
+            padding: 24px;
+        }
+
+            #shoppingcart-table .table-cells li:last-child {
+                border-right: none;
+            }
 
 #empty-message {
     color: #cb1717
@@ -142,12 +167,28 @@ footer {
 /* ========================= productdetails =========================== */
 
 #product-details {
+    display: flex;
+    flex-direction: row;
     text-align: center;
+    align-items: center;
 }
 
-#product-details img {
-    border-radius: 10px;
-}
+    #product-details section > img {
+        border-radius: 8px;
+        width: 400px;
+    }
+
+    #product-details section form {
+        padding-top: 1rem;
+    }
+
+    #product-details p {
+        padding: 1rem;
+    }
+
+    #product-details p:first-child {
+        font-weight: bold;
+    }
 
 /* ========================= checkout =========================== */
 #checkout-button, #return-button {
@@ -159,7 +200,7 @@ footer {
     background-color: #ee343461;
 }
 
-#checkout-button, #return-button, #empty-cart-button, .list-of-products li form button {
+#checkout-button, #return-button, #empty-cart-button, .list-of-products li form button, #add-to-cart-button {
     display: inline-flex;
     align-items: center;
     color: black;
