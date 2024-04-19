@@ -8,11 +8,11 @@
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
 
 <nav class="menu">
-    <ul>
-        <li><a asp-page="/">Home</a></li>
-        <!-- asp-route-id property is used to keep track of the logged in user's id -->
-        <li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Shopping Cart</a></li>
-    </ul>
+	<ul>
+		<li><a asp-page="/Index">Home</a></li>
+		<!-- asp-route-id property is used to keep track of the logged in user's id -->
+		<li><a asp-page="/ShoppingCart" asp-route-id="@accessControl.LoggedInAccountID">Shopping Cart</a></li>
+	</ul>
 </nav>
 
 <form id="search-form" method="post" asp-page-handler="Search">
