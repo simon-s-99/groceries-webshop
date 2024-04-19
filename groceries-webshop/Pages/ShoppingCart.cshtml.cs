@@ -18,6 +18,10 @@ namespace groceries_webshop.Pages
         public List<CartItem> CartItems { get; set; } = new List<CartItem>();
         public List<Product> Products { get; set; } = new List<Product>();
 
+        // Store temp data in this variable
+        [TempData]
+        public string Total { get; set; }
+
         public decimal GetTotal()
         {
             decimal total = 0;
@@ -36,10 +40,17 @@ namespace groceries_webshop.Pages
             _context.SaveChanges();
         }
 
-        public ActionResult OnPost(int id)
+        public ActionResult OnPostEmptyCart(int id)
         {
             ClearCart(id);
             return RedirectToPage();
+        }
+
+        public ActionResult OnPostCheckout(decimal total, int id)
+        {
+            Total = total.ToString();
+            ClearCart(id);
+            return RedirectToPage("./OrderConfirmation");
         }
 
         public void OnGet(int id)
